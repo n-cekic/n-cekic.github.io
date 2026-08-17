@@ -1,0 +1,45 @@
+/* Shared design picker ---------------------------------------------------- */
+.design-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+}
+.design-picker button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+.design-picker button span { font-weight: 650; opacity: .78; }
+.design-picker button[aria-pressed="true"] {
+  background: var(--text);
+  color: var(--bg);
+}
+.design-picker button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 900px) {
+  .header-inner { gap: 12px; }
+  .design-picker { margin-left: auto; }
+  .nav { display: none; }
+}
+@media (max-width: 560px) {
+  .header-inner { gap: 7px; }
+  .brand { width: 40px; height: 40px; }
+  .design-picker { gap: 2px; padding: 2px; border-radius: 10px; }
+  .design-picker button { min-height: 36px; padding: 0 9px; }
+  .design-picker button span { display: none; }
+  .header-actions { gap: 4px; }
+  .icon-button { width: 40px; height: 40px; min-height: 40px; }
+}
