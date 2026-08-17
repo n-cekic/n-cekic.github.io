@@ -11,10 +11,16 @@
   <title>Nikola Cekić — Backend Software Engineer | Go</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="design-picker.css" />
+  <link rel="stylesheet" href="design-v2.css" />
+  <link rel="stylesheet" href="design-v3.css" />
   <script>
     (() => {
-      const saved = localStorage.getItem('resume-theme');
-      if (saved) document.documentElement.dataset.theme = saved;
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('resume-theme');
+      const savedDesign = localStorage.getItem('resume-design') || 'v1';
+      if (savedTheme) root.dataset.theme = savedTheme;
+      root.dataset.design = savedDesign;
     })();
   </script>
   <script type="application/ld+json">
@@ -45,6 +51,11 @@
         <a href="#community">Community</a>
         <a href="#education">Education</a>
       </nav>
+      <div class="design-picker" role="group" aria-label="Choose resume design">
+        <button type="button" data-design-target="v1" title="V1 — Focus">V1 <span>Focus</span></button>
+        <button type="button" data-design-target="v2" title="V2 — Editorial">V2 <span>Editorial</span></button>
+        <button type="button" data-design-target="v3" title="V3 — Systems">V3 <span>Systems</span></button>
+      </div>
       <div class="header-actions">
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
         <button class="print-button" type="button" onclick="window.print()">Print résumé</button>
@@ -266,6 +277,25 @@
   <script>
     const root = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
+    const designButtons = [...document.querySelectorAll('[data-design-target]')];
+
+    function syncDesignPicker() {
+      const active = root.dataset.design || 'v1';
+      designButtons.forEach((button) => {
+        const selected = button.dataset.designTarget === active;
+        button.setAttribute('aria-pressed', String(selected));
+      });
+    }
+
+    designButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        root.dataset.design = button.dataset.designTarget;
+        localStorage.setItem('resume-design', button.dataset.designTarget);
+        syncDesignPicker();
+      });
+    });
+    syncDesignPicker();
+
     toggle.addEventListener('click', () => {
       const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       const next = current === 'dark' ? 'light' : 'dark';
