@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nikola Cekić — Backend Software Engineer specializing in Go, event-driven services, Kafka, PostgreSQL, concurrency, reliability, and pragmatic backend architecture." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Nikola Cekić — Backend Software Engineer | Go" />
+  <meta property="og:description" content="Go backend engineer focused on production services, event-driven systems, reliability, and pragmatic architecture." />
+  <meta property="og:type" content="profile" />
+  <title>Nikola Cekić — Backend Software Engineer | Go</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (() => {
+      const saved = localStorage.getItem('resume-theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikola Cekić",
+    "jobTitle": "Backend Software Engineer",
+    "address": {"@type": "PostalAddress", "addressLocality": "Belgrade", "addressCountry": "RS"},
+    "email": "mailto:ncekic13@gmail.com",
+    "sameAs": [
+      "https://github.com/n-cekic",
+      "https://www.linkedin.com/in/ncekic/"
+    ],
+    "knowsAbout": ["Go", "Kafka", "PostgreSQL", "Microservices", "Backend engineering", "Concurrency"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Back to top">NC</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#community">Community</a>
+        <a href="#education">Education</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
+        <button class="print-button" type="button" onclick="window.print()">Print résumé</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Backend Software Engineer · Go</p>
+          <h1>Nikola Cekić</h1>
+          <p class="lead">
+            Go backend engineer focused on production services, event-driven systems, concurrency,
+            reliability, and pragmatic architecture. I build and improve systems that are easier to
+            operate, reason about, and evolve.
+          </p>
+          <div class="contact-row" aria-label="Contact links">
+            <a href="mailto:ncekic13@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/ncekic/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/n-cekic" target="_blank" rel="noreferrer">GitHub</a>
+            <span>Belgrade, Serbia</span>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Profile highlights">
+          <div class="highlight">
+            <span class="highlight-label">Primary language</span>
+            <strong>Go</strong>
+          </div>
+          <div class="highlight">
+            <span class="highlight-label">Focus</span>
+            <strong>Backend systems</strong>
+          </div>
+          <div class="highlight">
+            <span class="highlight-label">Strengths</span>
+            <strong>Concurrency · reliability · architecture</strong>
+          </div>
+          <div class="highlight">
+            <span class="highlight-label">English</span>
+            <strong>Professional working proficiency</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact shell" aria-labelledby="impact-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Selected impact</p>
+        <h2 id="impact-title">Engineering outcomes, not keyword lists</h2>
+      </div>
+      <div class="impact-grid">
+        <article class="impact-card">
+          <span class="impact-kicker">Architecture & throughput</span>
+          <h3>Standalone Bonus Cost service</h3>
+          <p>Implemented a Go service with Kafka ingestion, concurrent aggregation, PostgreSQL persistence, Flyway migrations, and ~70% test coverage.</p>
+          <p class="impact-result">Eliminated typically 1–3 downstream database reads per settlement and reduced repeated writes through batching.</p>
+        </article>
+        <article class="impact-card">
+          <span class="impact-kicker">Production reliability</span>
+          <h3>OOM root-cause analysis</h3>
+          <p>Used Grafana and Go <code>pprof</code> allocation profiles to trace a memory leak to incorrect Gorilla context usage.</p>
+          <p class="impact-result">Eliminated recurring out-of-memory failures.</p>
+        </article>
+        <article class="impact-card">
+          <span class="impact-kicker">Engineering effectiveness</span>
+          <h3>Migration guardrails in CI</h3>
+          <p>Built Flyway migration validation for GitLab CI to catch duplicate, malformed, and incorrectly ordered migrations before merge.</p>
+          <p class="impact-result">Stopped recurring version conflicts; later adopted by DevOps into shared CI quality jobs.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="shell content-grid">
+      <div class="main-column">
+        <section class="section" id="experience" aria-labelledby="experience-title">
+          <div class="section-heading">
+            <p class="eyebrow">Experience</p>
+            <h2 id="experience-title">Professional work</h2>
+          </div>
+
+          <article class="role">
+            <div class="role-header">
+              <div>
+                <h3>Backend Software Engineer <span class="muted">(Junior → Mid)</span></h3>
+                <p class="company">Finbet · Belgrade, Serbia · Hybrid</p>
+              </div>
+              <time>Jul 2023 — Present</time>
+            </div>
+            <p class="role-summary">
+              Worked primarily on the Bonus Engine product in a Go-based betting platform comprising roughly 80 microservices, with about 10 under active development in the relevant product area.
+            </p>
+            <ul class="achievement-list">
+              <li>
+                <strong>Built the standalone Go Bonus Cost service</strong> as part of a redesign of campaign-cost tracking, including Kafka ingestion, concurrent aggregation by bonus ID, PostgreSQL persistence, Flyway migrations, and tests with approximately 70% coverage. The redesign exposed before/after bonus state in Kafka events, eliminating typically 1–3 database reads per settlement, reducing repeated writes through batching, and removing lag-induced overspend scenarios observed during testing.
+              </li>
+              <li>
+                <strong>Diagnosed and fixed a production memory leak</strong> using Grafana and <code>pprof</code> allocation profiles, tracing it to incorrect Gorilla context usage and eliminating recurring OOM failures.
+              </li>
+              <li>
+                <strong>Automated Flyway migration validation in GitLab CI</strong>, blocking duplicate, incorrectly ordered, or malformed migrations before merge and eliminating recurring version conflicts; DevOps later incorporated the validator into shared quality jobs alongside tests and linting.
+              </li>
+              <li>
+                <strong>Standardized local development</strong> with Docker Compose and VS Code debug configurations, reducing technical onboarding from roughly two weeks to under a week; also helped onboard and mentor three junior engineers.
+              </li>
+            </ul>
+            <details>
+              <summary>More contributions</summary>
+              <ul class="achievement-list secondary-list">
+                <li>Worked with the team lead to establish structured peer code reviews as a pre-merge expectation, regularly reviewing teammates’ changes and improving practices around database error handling, GoDoc, documentation, and general code quality.</li>
+                <li>Initiated and delivered three cross-team technical sessions for approximately 15 engineers on Go concurrency patterns, error handling, and database mocking, using prepared slides and code examples.</li>
+                <li>Evaluated Keploy through a proof of concept, authored an Architecture Decision Record documenting benefits, costs, and dependency risks, and presented the trade-offs to the team; the tool was ultimately not adopted.</li>
+              </ul>
+            </details>
+          </article>
+
+          <article class="role">
+            <div class="role-header">
+              <div>
+                <h3>Software Engineer</h3>
+                <p class="company">NCR Corp. · Belgrade, Serbia · Remote</p>
+              </div>
+              <time>Dec 2021 — Jun 2023</time>
+            </div>
+            <p class="role-summary">Worked primarily in C++ on Linux-based software for ATMs and self-service checkout systems.</p>
+            <ul class="achievement-list">
+              <li><strong>Reduced CPU overhead</strong> in a Linux process-monitoring component by consolidating per-checker timers into a shared scheduling clock used across multiple checkers.</li>
+              <li><strong>Redesigned a continuously running logging service</strong> handling log creation, size/time-based rotation, compression, and retention.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="section" id="community" aria-labelledby="community-title">
+          <div class="section-heading">
+            <p class="eyebrow">Community</p>
+            <h2 id="community-title">Go Developer Network · Belgrade</h2>
+          </div>
+          <div class="community-card">
+            <div>
+              <h3>Meetup Organizer</h3>
+              <p class="company">2025 — Present</p>
+            </div>
+            <p>Co-organizer of recurring Go meetups held roughly every two months, typically attracting around 30 attendees. Helps find speakers, coordinate events, and host the community. Ardan Labs and JetBrains have sponsored events.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="side-column" aria-label="Resume details">
+        <section class="side-section" id="skills" aria-labelledby="skills-title">
+          <div class="section-heading side-heading">
+            <p class="eyebrow">Skills</p>
+            <h2 id="skills-title">Core toolkit</h2>
+          </div>
+          <div class="skill-group">
+            <h3>Core language</h3>
+            <div class="tags"><span>Go</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Backend & data</h3>
+            <div class="tags"><span>PostgreSQL</span><span>Kafka</span><span>REST APIs</span><span>Microservices</span><span>NATS</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Go / backend competencies</h3>
+            <div class="tags"><span>Concurrency</span><span>Goroutines & channels</span><span>Context & cancellation</span><span>Testing</span><span>pprof</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Tools & infrastructure</h3>
+            <div class="tags"><span>Linux</span><span>Docker</span><span>Docker Compose</span><span>Kubernetes</span><span>Git</span><span>GitLab CI/CD</span><span>Grafana</span></div>
+          </div>
+        </section>
+
+        <section class="side-section" id="education" aria-labelledby="education-title">
+          <div class="section-heading side-heading">
+            <p class="eyebrow">Education</p>
+            <h2 id="education-title">University</h2>
+          </div>
+          <h3>University of Belgrade</h3>
+          <p class="company">Faculty of Mathematics</p>
+          <p>Computer Science and Mathematics · 2018–2021</p>
+          <p class="small">Relevant coursework: Data Structures & Algorithms, Discrete Mathematics, Object-Oriented Programming, Compiler Construction.</p>
+        </section>
+
+        <section class="side-section" aria-labelledby="learning-title">
+          <div class="section-heading side-heading">
+            <p class="eyebrow">Professional development</p>
+            <h2 id="learning-title">Selected learning</h2>
+          </div>
+          <ul class="learning-list">
+            <li><span>Ultimate Go Programming</span><small>Ardan Labs</small></li>
+            <li><span>Domain-Driven Design</span><small>Eric Evans</small></li>
+            <li><span>Domain-Driven Design with Golang</span><small>Matthew Boyle</small></li>
+            <li><span>Understanding Distributed Systems</span><small>Roberto Vitillo</small></li>
+            <li><span>Software Architecture: The Hard Parts</span><small>Neal Ford et al.</small></li>
+            <li><span>System Design Interview</span><small>Alex Xu</small></li>
+            <li><span>The Software Engineer's Guidebook</span><small>Gergely Orosz</small></li>
+            <li><span>Computer Networking: A Top-Down Approach</span><small>J. Kurose, K. Ross</small></li>
+          </ul>
+        </section>
+
+        <section class="side-section" aria-labelledby="interests-title">
+          <div class="section-heading side-heading">
+            <p class="eyebrow">Outside work</p>
+            <h2 id="interests-title">Interests</h2>
+          </div>
+          <p>Snowboarding · OCR races · board games · video games</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <p>© <span id="year"></span> Nikola Cekić</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('resume-theme', next);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
