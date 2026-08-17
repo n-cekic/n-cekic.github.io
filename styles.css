@@ -425,3 +425,127 @@ details[open] summary { border-bottom: 1px solid var(--line); color: var(--text)
   a { text-decoration: none; }
   @page { size: A4; margin: 12mm; }
 }
+
+/* Design refinement pass 1: mobile density and touch ergonomics */
+@media (max-width: 700px) {
+  .header-inner { min-height: 64px; }
+  .brand,
+  .icon-button { width: 44px; height: 44px; }
+  .icon-button { min-height: 44px; }
+
+  .hero { padding: 38px 0 22px; }
+  h1 { font-size: clamp(3.15rem, 15.5vw, 4.35rem); }
+  .lead { margin-top: 18px; font-size: 1.02rem; line-height: 1.55; }
+  .contact-row { gap: 7px; margin-top: 20px; }
+  .contact-row a,
+  .contact-row span { min-height: 40px; padding: 7px 11px; }
+
+  .hero-grid { gap: 22px; }
+  .hero-panel { grid-template-columns: 1fr 1fr; border-radius: 16px; }
+  .highlight { padding: 13px 14px; min-height: 78px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line) !important; }
+  .highlight:nth-child(2n) { border-right: 0; }
+  .highlight:nth-last-child(-n+2) { border-bottom: 0 !important; }
+  .highlight-label { font-size: .69rem; }
+  .highlight strong { font-size: .88rem; line-height: 1.35; }
+
+  .impact { padding-top: 22px; }
+  .section-heading.compact { margin-bottom: 15px; }
+  .impact-grid { gap: 12px; }
+  .impact-card { padding: 18px; border-radius: 16px; }
+  .impact-card p { font-size: .92rem; line-height: 1.55; }
+  .impact-card .impact-result { margin-top: 11px; }
+}
+
+/* Design refinement pass 2: memorable impact anchors and long-form scanability */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(circle at 78% 28%, color-mix(in srgb, var(--accent-soft) 74%, transparent) 0, transparent 25rem);
+  opacity: .62;
+  pointer-events: none;
+}
+
+.impact-grid { counter-reset: impact; }
+.impact-card {
+  counter-increment: impact;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid color-mix(in srgb, var(--accent) 72%, var(--line));
+}
+.impact-card::after {
+  content: "0" counter(impact);
+  position: absolute;
+  right: 18px;
+  top: 15px;
+  color: color-mix(in srgb, var(--accent) 23%, transparent);
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -.05em;
+}
+.impact-kicker { padding-right: 10px; }
+
+.role-summary { max-width: 72ch; }
+.achievement-list { max-width: 74ch; }
+.achievement-list li { line-height: 1.58; }
+.achievement-list li strong { color: var(--text); }
+.role h3 .muted { display: inline-block; white-space: nowrap; }
+
+@media (max-width: 700px) {
+  .hero::before { background: radial-gradient(circle at 78% 45%, color-mix(in srgb, var(--accent-soft) 70%, transparent) 0, transparent 18rem); }
+  .impact-card { border-top-width: 3px; }
+  .impact-card::after { right: 15px; top: 14px; font-size: 1.12rem; }
+  .achievement-list li { margin: 15px 0; line-height: 1.6; }
+  .role h3 { line-height: 1.28; }
+  .role h3 .muted { margin-top: 2px; font-size: .9em; }
+}
+
+/* Design refinement pass 3: role scanning and section rhythm */
+summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.community-card {
+  border-left: 3px solid color-mix(in srgb, var(--accent) 62%, var(--line));
+}
+.side-section + .side-section { margin-top: 2px; }
+
+@media (max-width: 700px) {
+  .content-grid { gap: 50px; }
+  .section + .section { margin-top: 62px; }
+  .section-heading { margin-bottom: 19px; }
+  .role { padding-bottom: 30px; }
+  .role + .role { padding-top: 31px; }
+  .role-header { gap: 8px; }
+  .role time {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    min-height: 30px;
+    padding: 3px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: .78rem;
+  }
+  .role-summary { margin: 15px 0 13px; }
+  details { margin-top: 16px; }
+  summary { min-height: 46px; padding: 11px 14px; }
+  .community-card { padding: 20px; }
+  .side-section { padding-bottom: 24px; }
+}
+
+/* Keep the visual flourishes out of the printable CV. */
+@media print {
+  .hero::before,
+  .impact-card::after { display: none !important; }
+  .impact-card { border-top: 1px solid var(--line); }
+  .community-card { border-left: 1px solid var(--line); }
+}
